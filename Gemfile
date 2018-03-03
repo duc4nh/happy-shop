@@ -23,7 +23,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
   gem 'rails-controller-testing'
-  gem 'faker'
 end
 
 group :development, :test do
@@ -52,6 +51,7 @@ gem 'haml'
 gem 'grape'
 gem 'grape-jbuilder'
 gem 'kaminari'
+gem 'faker', '~> 1.7', '>= 1.7.3'
 # gem 'rest-client'
 # gem 'figaro'
 # gem 'devise'

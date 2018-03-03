@@ -17,5 +17,15 @@
 class Product < ApplicationRecord
   include Sortable
 
-  validates :name, :sold_out, :category, :under_sale, :price, :sale_price, :sale_text, presence: true
+  validates :name, :category, :price, :sale_price, :sale_text, presence: true
+  validates_inclusion_of :sold_out, :under_sale, in: [true, false]
+
+  def self.filter(upper_price, lower_price, categories)
+    products = self.all
+    products = products.where('category IN (?)', categories) if categories.present?
+    products = products.where('price < ?', upper_price) if upper_price.present?
+    products = products.where('price > ?', lower_price) if lower_price.present?
+    products
+  end
+
 end
