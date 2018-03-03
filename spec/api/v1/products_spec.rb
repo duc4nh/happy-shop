@@ -6,7 +6,7 @@ RSpec.configure do |c|
   c.include Helpers
 end
 
-RSpec.describe V1::Merchants do
+RSpec.describe V1::Products do
   let (:product) {create(:product)}
 
   context 'Get product detail' do
@@ -16,7 +16,7 @@ RSpec.describe V1::Merchants do
     end
 
     it 'not available product detail' do
-      get "/api/v1/products/0", params: nil, headers: api_header
+      get "/api/v1/products/0", params: nil
       expect(response.status).to eq(404)
     end
   end
@@ -26,5 +26,5 @@ RSpec.describe V1::Merchants do
       get "/api/v1/products", params: nil
       expect(response.status).to eq(200)
     end
-
+  end
 end

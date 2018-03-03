@@ -23,11 +23,15 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
   gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.5'
   gem 'pry-rails'
+  gem 'rack-mini-profiler'
 end
 
 group :development do
