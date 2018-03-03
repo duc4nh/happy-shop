@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  sold_out   :boolean
+#  category   :string
+#  under_sale :boolean
+#  price      :integer
+#  sale_price :integer
+#  sale_text  :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sold_out: false
+  category: MyString
+  under_sale: false
+  price: 
+  sale_price: 1
+  sale_text: MyString
+
+two:
+  name: MyString
+  sold_out: false
+  category: MyString
+  under_sale: false
+  price: 
+  sale_price: 1
+  sale_text: MyString

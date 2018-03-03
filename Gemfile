@@ -16,6 +16,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
+group :test do
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'simplecov', :require => false
+  gem 'rails-controller-testing'
+end
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
@@ -36,6 +45,9 @@ group :production do
 end
 
 gem 'haml'
+gem 'grape'
+gem 'grape-jbuilder'
+gem 'kaminari'
 # gem 'rest-client'
 # gem 'figaro'
 # gem 'devise'
