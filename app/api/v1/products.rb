@@ -9,12 +9,12 @@ class V1::Products < Grape::API
       optional :per_page, type: Integer, default: 25
       optional :sort, type: String, default: 'price'
       optional :orientation, type: String, default: 'ASC'
-      optional :upper_price, type: String
-      optional :lower_price, type: String
-      optional :categories, type: Array
+      optional :upper_price, type: Float
+      optional :lower_price, type: Float
+      optional :category, type: String
     end
     get '/', jbuilder: 'v1/products/list' do
-      @products = Product.filter(params[:upper_price], params[:lower_price], params[:categories]).sort_result(params).page(params[:page]).per(params[:per_page])
+      @products = Product.filter(params[:upper_price], params[:lower_price], params[:category]).sort_result(params).page(params[:page]).per(params[:per_page])
       @pagination = create_pagination_params(params[:page], params[:per_page], @products.total_pages, @products.total_count)
       status(200)
     end

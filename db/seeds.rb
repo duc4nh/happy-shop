@@ -24,7 +24,7 @@ Product.destroy_all
   Product.create(
     name: "Mist Spray",
     sold_out: false,
-    category: 'makeup',
+    category: 'brushes',
     under_sale: false,
     price: 2000,
     sale_price: 1000,

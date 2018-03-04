@@ -1,3 +1,270 @@
-// Place all the styles related to the Employees controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+    text-align: center !important;
+    margin: 80px !important;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.product-card-actions .btn-block {
+    display: block;
+    width: 100%;
+}
+
+.product-card-actions .btn {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    -webkit-transition: opacity 0.12s ease-in-out;
+    transition: opacity 0.12s ease-in-out;
+}
+
+.product-card-actions .btn-primary {
+    color: #fff;
+    background-color: #d50032;
+    border-color: #d50032;
+}
+
+.product-card-actions .btn-primary:hover {
+    color: #fff;
+    background-color: #d50032;
+    border-color: #d50032;
+    opacity: 0.8;
+}
+
+.product-card-actions .btn-sm {
+    padding: 9px 10px 5px;
+    line-height: 14px;
+}
+
+.product-card .product-card-image-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.product-card .product-card-image {
+    width: 100%;
+    display: block;
+}
+
+.product-card .product-card-heart, .product-card .product-card-heart-filled {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+}
+
+.product-card .product-card-heart {
+    background: url(https://www.sephora.sg/assets/sephora_style_guide/heart-51256bdf57ab284378ede02c62edb9e7c849bafb2b6d108c939545acf58e55df.svg);
+}
+
+.product-card .product-card-heart-filled {
+    background: url(https://www.sephora.sg/assets/sephora_style_guide/heart-filled-077eac482032001de5df71c5fb23007f57eb1123764b567f4b1c60cf54a68b32.svg);
+}
+
+.product-card .product-card-actions {
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+
+.product-card .product-card-actions .product-card-add-to-bag, .product-card .product-card-actions .product-card-add-to-wait-list {
+    margin-top: -30px;
+}
+
+.product-card .product-card-description-container .product-card-label-new-arrival {
+    color: #d50032;
+}
+
+.product-card .product-card-description-container .product-card-label-new-arrival, .product-card .product-card-description-container .product-card-label-limited-edition {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+
+}
+
+.product-card .product-card-description-container .product-card-description .product-card-brand {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+}
+
+.product-card .product-card-description-container .product-card-description .product-card-product {
+    overflow-wrap: break-word;
+    margin-bottom: 1px;
+}
+
+.product-card .product-card-description-container .product-card-description .product-card-price {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.product-card .product-card-description-container .product-card-description .product-card-rating {
+    margin-bottom: 2px;
+}
+
+.product-card-rating {
+    margin-top: 0;
+}
+
+.product-card .product-card-description-container .product-card-description .product-card-rating .product-rating {
+    position: relative;
+    width: 72px;
+}
+
+div.rateit {
+    display: inline-block;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+div.rateit div.rateit-reset {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    float: left;
+}
+
+.rating-container .rateit .rateit-range {
+    background: url(https://www.sephora.sg/assets/sephora_style_guide/star-7e015f81a6c102c2962930403a87e4920fca6a2ee8b8b99e62221e9181ec0eb1.png) !important;
+    background-size: 15px 12px !important;
+}
+
+div.rateit div.rateit-range {
+    position: relative;
+    display: inline-block;
+    height: 14px;
+    vertical-align: top;
+}
+
+div.rateit div.rateit-hover, div.rateit div.rateit-selected {
+    position: absolute;
+    left: 0px;
+}
+
+div.rateit div.rateit-range {
+    background: url(https://www.sephora.sg/assets/sephora-stars-32f7b61279784ac04af0b6834925f33e8b379f06a1a05f32d8fc4729ac81c1ce.png) !important;
+}
+
+div.rateit div.rateit-selected, div.rateit div.rateit-preset {
+    background: url(https://www.sephora.sg/assets/sephora-stars-32f7b61279784ac04af0b6834925f33e8b379f06a1a05f32d8fc4729ac81c1ce.png) 0 -14px !important;
+}
+
+.rating-container .rateit .rateit-selected, .rating-container .rateit .rateit-preset {
+    position: absolute;
+    top: 0;
+    background: url(https://www.sephora.sg/assets/sephora_style_guide/star-filled-ac0f6beb296f83a65699dc63b9c858503e597148aac45abe97020f0f8617bcfc.png) !important;
+    background-size: 15px 12px !important;
+}
+
+.product-card-description {
+    text-align: left !important;
+}
+
+.product-card .product-card-description-container {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+
+
+/*#sort-view {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.sort-container {
+    width: 100%;
+    margin-right: 20px;
+}
+
+.sort-container, .view-container {
+    display: inline;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.control-label-inline {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.sort-container .sort-selector {
+    width: 140px;
+}
+
+.pagination-container[data-v-3276bde8] {
+    display: inline-block;
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+}
+
+.pagination .page.current, .pagination .page.current:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
+
+.pagination .page {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-right: 0;
+    display: inline-block;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 10px 8px;
+    height: 40px;
+    min-width: 40px;
+    width: auto;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.index-top-action {
+    margin-bottom: 40px;
+}
+
+.index-top-action {
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+.search-products-count {
+    margin-top: 14px;
+    padding-right: 10px;
+    float: left;
+}*/
