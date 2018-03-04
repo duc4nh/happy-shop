@@ -2,13 +2,12 @@
 <html>
   <head>
     <title>HappyShop</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

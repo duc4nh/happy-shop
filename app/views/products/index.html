@@ -1,0 +1,54 @@
+<script type="text/x-template" id="product-row">
+  <tr>
+    <td>
+      <div>{{ product.name }}</div>
+    </td>
+    <td>
+      <div>{{ product.category }}</div>
+    </td>
+    <td>
+      <div>{{ product.sold_out }}</div>
+    </td>
+    <td>
+      <div>{{ product.under_sale }}</div>
+    </td>
+    <td>
+      <div>{{ product.price }}</div>
+    </td>
+    <td>
+      <div>{{ product.sale_price }}</div>
+    </td>
+    <td>
+      <div>{{ product.sale_text }}</div>
+    </td>
+  </tr>
+</script>
+
+<div class="col-md-4"></div>
+
+<div class="col-md-8">
+  <h1>Products</h1>
+
+  <div id="products">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>sold_out</th>
+          <th>under_sale</th>
+          <th>price</th>
+          <th>sale_price</th>
+          <th>sale_text</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          is="product-row"
+          v-for="product in products"
+          :product="product">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
