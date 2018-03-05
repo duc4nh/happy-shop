@@ -1,7 +1,6 @@
 # This class is the bootstrap for all API
 
 class API < Grape::API
-
   format :json
   formatter :json, Grape::Formatter::Jbuilder
 
@@ -26,5 +25,4 @@ class API < Grape::API
 
   # Add more API versions here (if any)
   mount V1::ApiV1
-
 end

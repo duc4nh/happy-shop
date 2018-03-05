@@ -1,5 +1,4 @@
 class V1::Products < Grape::API
-
   helpers ApiHelpers
 
   resources :products do
@@ -24,6 +23,5 @@ class V1::Products < Grape::API
       @product = Product.find(params[:id])
       status(200)
     end
-  
   end
 end

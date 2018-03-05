@@ -21,7 +21,7 @@ class Product < ApplicationRecord
   validates_inclusion_of :sold_out, :under_sale, in: [true, false]
 
   def self.filter(upper_price, lower_price, category)
-    products = self.all
+    products = all
     products = products.where('category = ?', category) if category.present? && !(category == 'all')
     products = products.where('price <= ?', upper_price * 100) if upper_price.present?
     products = products.where('price >= ?', lower_price * 100) if lower_price.present?
@@ -29,7 +29,6 @@ class Product < ApplicationRecord
   end
 
   def formated_price
-    "$#{sprintf("%.2f", price / 100.0)}"
+    "$#{sprintf('%.2f', price / 100.0)}"
   end
-
 end
