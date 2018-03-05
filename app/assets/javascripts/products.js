@@ -54,9 +54,6 @@ var products = new Vue({
   },
   methods: {
     reloadProduct: function(){
-      if (this.category == "all"){
-        this.category = null;
-      };
       if (isNaN(this.upper_price)){
         this.upper_price = null;
       };

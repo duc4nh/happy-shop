@@ -22,7 +22,7 @@ class Product < ApplicationRecord
 
   def self.filter(upper_price, lower_price, category)
     products = self.all
-    products = products.where('category = ?', category) if category.present?
+    products = products.where('category = ?', category) if category.present? && !(category == 'all')
     products = products.where('price <= ?', upper_price * 100) if upper_price.present?
     products = products.where('price >= ?', lower_price * 100) if lower_price.present?
     products
