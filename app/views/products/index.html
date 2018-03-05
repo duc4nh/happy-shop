@@ -1,18 +1,18 @@
 <script type="text/x-template" id="product-item">
-  <div v-on:mouseenter="showBtn" v-on:mouseleave="hideBtn" class="col-md-3 col-xs-4">
+  <div v-on:mouseenter="showBtn" v-on:mouseleave="hideBtn" class="col-md-3 col-md-offset-1 col-xs-3 col-xs-offset-1">
     <div data-product-name="{{ product.name }}" class="product-card">
       <a href="#" class="product-card-image-container">
         <div v-if="product.sold_out" class="out-of-stock">OUT OF STOCK</div>
         <img class="product-card-image ga-image-ready" src="https://static-reg.lximg.com/images/pictures/47569/zoom_e6cc572c9d9a6101ccdc4f84426af247a207285d_1493220447_KVD_LockIt_Foundation_Medium_57_warm_WEB.jpg" lazy="loaded">
       </a>
 
-      <div v-if="hover">
-        <div>
-          <div v-on:click="wishlist">
-            <div v-if="wishlisted" class="product-card-heart-filled"></div>
-            <div v-else class="product-card-heart"></div>
-          </div>
+      <div v-if="(hover || onMobile)">
+        <div v-on:click="wishlist">
+          <div v-if="wishlisted" class="product-card-heart-filled"></div>
+          <div v-else class="product-card-heart"></div>
         </div>
+      </div>
+      <div v-if="hover">
         <div class="product-card-actions">
           <div v-if="product.sold_out" @click="waitlist">
             <div v-if="waitlisted"><button  class="btn btn-sm btn-block btn-default product-card-wait-listed">Waitlisted</button></div>
@@ -43,7 +43,6 @@
       </a>
     </div>
   </div>
-  <div class="col-md-1 col-xs-0"/>
 </script>
 
 
@@ -87,7 +86,7 @@
       <div class="col-md-12 col-xs-12 pagination">
         <div class="pull-right">
           <button @click="previousPage" class="btn btn-default">Previous</button>
-          <span class="page-span">Page {{ pagination.page }} of {{ pagination.total_pages}} - Showing {{ pagination.per_page }} out of {{ pagination.count}} items</span>
+          <span class="page-span">Page {{ pagination.page }} of {{ pagination.total_pages}} - Total {{ pagination.count}} items</span>
           <button @click="nextPage" class="btn btn-default">Next</button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 h1 {
     text-align: center !important;
-    margin: 80px !important;
+    margin: 30px !important;
 }
 
 a {
@@ -228,4 +228,17 @@ div.rateit div.rateit-selected, div.rateit div.rateit-preset {
 
 .page-span {
     margin: 10px;
+}
+
+@media (max-width: 1199px) {
+    .product-card .product-card-heart, .product-card .product-card-heart-filled {
+        visibility: visible;
+        position: absolute;
+        top: auto;
+        margin-top: -40px;
+    }
+
+    .product-card-actions {
+        display: none;
+    }
 }

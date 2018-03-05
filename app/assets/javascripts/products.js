@@ -18,6 +18,7 @@ Vue.component('product-item', {
       hover: false,
       wishlisted: false,
       waitlisted: false,
+      onMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
       errors: {}
     }
   },
