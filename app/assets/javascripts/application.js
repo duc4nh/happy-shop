@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require vue/dist/vue
 //= require vue-resource/dist/vue-resource
+//= require vue-router
 //= require_tree .

@@ -63,20 +63,20 @@ var products = new Vue({
     previousPage: function(){
       if (this.pagination.page > 1) {
         this.pagination.page -= 1;
-        this.reloadProduct();
+        this.loadProduct();
       }
     },
     nextPage: function(){
       if (this.pagination.page < this.pagination.total_pages) {
         this.pagination.page += 1;
-        this.reloadProduct();
+        this.loadProduct();
       }
     },
     filter: function(){
       this.pagination.page = 1;
-      this.reloadProduct();
+      this.loadProduct();
     },
-    reloadProduct: function(){
+    loadProduct: function(){
       if (isNaN(this.upper_price)){
         this.upper_price = null;
       };
@@ -90,7 +90,6 @@ var products = new Vue({
         function (response) {
           that.products = response.data.products;
           that.pagination = response.data.pagination;
-          
         }
       ) 
     }
