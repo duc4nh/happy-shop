@@ -49,7 +49,7 @@ var products = new Vue({
     category,
     errors: {}
   },
-  ready: function() {
+  mounted: function() {
     var that;
     that = this;
     this.$http.get('/api/v1/products').then(
