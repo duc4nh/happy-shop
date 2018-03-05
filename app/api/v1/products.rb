@@ -12,16 +12,20 @@ class V1::Products < Grape::API
       optional :lower_price, type: Float
       optional :category, type: String
     end
-    get '/', jbuilder: 'v1/products/list' do
-      @products = Product.filter(params[:upper_price], params[:lower_price], params[:category]).sort_result(params).page(params[:page]).per(params[:per_page])
-      @pagination = create_pagination_params(params[:page], params[:per_page], @products.total_pages, @products.total_count)
-      status(200)
+    get '/' do
+      products = Product.filter(params[:upper_price], params[:lower_price], params[:category]).sort_result(params).page(params[:page]).per(params[:per_page])
+      pagination = create_pagination_params(params[:page], params[:per_page], products.total_pages, products.total_count)
+      
+      { 
+        products: products.map { |product| product.as_json },
+        pagination: pagination
+      }
     end
 
     desc "Get product's detail"
-    get '/:id', jbuilder: 'v1/products/detail' do
-      @product = Product.find(params[:id])
-      status(200)
+    get '/:id' do
+      product = Product.find(params[:id])
+      product.as_json
     end
   end
 end

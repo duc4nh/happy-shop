@@ -2,7 +2,6 @@
 
 class API < Grape::API
   format :json
-  formatter :json, Grape::Formatter::Jbuilder
 
   rescue_from ActiveRecord::RecordNotFound do |e|
     error!({ code: 404, error: e.message }, 404)

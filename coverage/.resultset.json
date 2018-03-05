@@ -9,13 +9,11 @@
         1,
         null,
         1,
-        null,
         null
       ],
       "/Users/duc4nh/Rth/happy-shop/app/controllers/products_controller.rb": [
         1,
         1,
-        null,
         null
       ],
       "/Users/duc4nh/Rth/happy-shop/app/controllers/application_controller.rb": [
@@ -27,9 +25,7 @@
         1,
         null,
         1,
-        null,
         1,
-        null,
         1,
         2,
         2,
@@ -75,6 +71,18 @@
         1,
         null,
         null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/duc4nh/Rth/happy-shop/app/models/application_record.rb": [
@@ -101,6 +109,6 @@
         null
       ]
     },
-    "timestamp": 1520181640
+    "timestamp": 1520228259
   }
 }
