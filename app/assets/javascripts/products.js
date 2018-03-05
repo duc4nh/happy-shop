@@ -17,6 +17,7 @@ Vue.component('product-item', {
     return {
       hover: false,
       wishlisted: false,
+      waitlisted: false,
       errors: {}
     }
   },
@@ -29,6 +30,9 @@ Vue.component('product-item', {
     },
     wishlist: function(){
       this.wishlisted = !this.wishlisted;   
+    },
+    waitlist: function(){
+      this.waitlisted = !this.waitlisted;   
     }
   }
 })
@@ -37,6 +41,7 @@ var products = new Vue({
   el: '#products',
   data: {
     products: [],
+    pagination: {},
     upper_price,
     lower_price,
     orientation,
@@ -49,10 +54,27 @@ var products = new Vue({
     this.$http.get('/api/v1/products').then(
       function (response) {
         that.products = response.data.products;
+        that.pagination = response.data.pagination;
       }
     )
   },
   methods: {
+    previousPage: function(){
+      if (this.pagination.page > 1) {
+        this.pagination.page -= 1;
+        this.reloadProduct();
+      }
+    },
+    nextPage: function(){
+      if (this.pagination.page < this.pagination.total_pages) {
+        this.pagination.page += 1;
+        this.reloadProduct();
+      }
+    },
+    filter: function(){
+      this.pagination.page = 1;
+      this.reloadProduct();
+    },
     reloadProduct: function(){
       if (isNaN(this.upper_price)){
         this.upper_price = null;
@@ -63,9 +85,11 @@ var products = new Vue({
 
       var that;
       that = this;
-      this.$http.get('/api/v1/products', {upper_price: this.upper_price, lower_price: this.lower_price, orientation: this.orientation, category: this.category} ).then(
+      this.$http.get('/api/v1/products', {page: this.pagination.page, upper_price: this.upper_price, lower_price: this.lower_price, orientation: this.orientation, category: this.category} ).then(
         function (response) {
           that.products = response.data.products;
+          that.pagination = response.data.pagination;
+          
         }
       ) 
     }

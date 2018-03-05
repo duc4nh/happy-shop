@@ -5,7 +5,7 @@ class V1::Products < Grape::API
     desc 'Get products'
     params do
       optional :page, type: Integer, default: 1
-      optional :per_page, type: Integer, default: 3
+      optional :per_page, type: Integer, default: 9
       optional :sort, type: String, default: 'price'
       optional :orientation, type: String, default: 'ASC'
       optional :upper_price, type: Float

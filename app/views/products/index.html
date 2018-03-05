@@ -1,7 +1,8 @@
 <script type="text/x-template" id="product-item">
-  <div v-on:mouseenter="showBtn" v-on:mouseleave="hideBtn" class="col-md-3">
+  <div v-on:mouseenter="showBtn" v-on:mouseleave="hideBtn" class="col-md-3 col-xs-4">
     <div data-product-name="{{ product.name }}" class="product-card">
       <a href="#" class="product-card-image-container">
+        <div v-if="product.sold_out" class="out-of-stock">OUT OF STOCK</div>
         <img class="product-card-image ga-image-ready" src="https://static-reg.lximg.com/images/pictures/47569/zoom_e6cc572c9d9a6101ccdc4f84426af247a207285d_1493220447_KVD_LockIt_Foundation_Medium_57_warm_WEB.jpg" lazy="loaded">
       </a>
 
@@ -13,7 +14,11 @@
           </div>
         </div>
         <div class="product-card-actions">
-          <div><button class="btn btn-sm btn-block btn-primary product-card-add-to-bag">Add To Bag</button></div>
+          <div v-if="product.sold_out" @click="waitlist">
+            <div v-if="waitlisted"><button  class="btn btn-sm btn-block btn-default product-card-wait-listed">Waitlisted</button></div>
+            <div v-else><button class="btn btn-sm btn-block btn-default product-card-add-to-wait-list">Waitlist me</button></div>
+          </div>
+          <div v-else><button class="btn btn-sm btn-block btn-danger product-card-add-to-bag">Add To Bag</button></div>
         </div>
       </div>
 
@@ -38,7 +43,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-1"/>
+  <div class="col-md-1 col-xs-0"/>
 </script>
 
 
@@ -50,7 +55,7 @@
       <div class="col-md-offset-3">
         <div class="form-group">
           <label for="orientation">Sort</label>
-          <select class="form-control" id="orientation" v-model="orientation" @change="reloadProduct">
+          <select class="form-control" id="orientation" v-model="orientation" @change="filter">
             <option class="form-option" value="asc" selected>Price: Low to High</option>
             <option class="form-option" value="desc">Price: High to Low</option>
           </select>
@@ -58,7 +63,7 @@
 
         <div class="form-group">
           <label for="category">Category</label>
-          <select class="form-control" id="category" v-model="category" @change="reloadProduct">
+          <select class="form-control" id="category" v-model="category" @change="filter">
             <option class="form-option" value="all" selected>All</option>
             <option class="form-option" value="makeup">Makeup</option>
             <option class="form-option" value="tools">Tools</option>
@@ -68,18 +73,25 @@
 
         <div class="form-group">
           <label for="lower_price">Lower Price</label>
-          <input type="number" step=".01" class="form-control" id="lower_price" placeholder="0.00" v-model.number="lower_price" @change="reloadProduct">
+          <input type="number" step=".01" class="form-control" id="lower_price" placeholder="0.00" v-model.number="lower_price" @change="filter">
         </div>
 
         <div class="form-group">
           <label for="upper_price">Upper Price</label>
-          <input type="number" step=".01" class="form-control" id="upper_price" placeholder="100.00" v-model.number="upper_price" @change="reloadProduct">
+          <input type="number" step=".01" class="form-control" id="upper_price" placeholder="100.00" v-model.number="upper_price" @change="filter">
         </div>
       </div>
     </div>
 
-  
     <div class="col-md-9 col-xs-12">
+      <div class="col-md-12 col-xs-12 pagination">
+        <div class="pull-right">
+          <button @click="previousPage" class="btn btn-default">Previous</button>
+          <span class="page-span">Page {{ pagination.page }} of {{ pagination.total_pages}} - Showing {{ pagination.per_page }} out of {{ pagination.count}} items</span>
+          <button @click="nextPage" class="btn btn-default">Next</button>
+        </div>
+      </div>
+      
       <div
         is="product-item"
         v-for="product in products"
