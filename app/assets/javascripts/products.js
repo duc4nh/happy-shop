@@ -1,8 +1,3 @@
-//= require jquery
-//= require jquery_ujs
-//= require vue/dist/vue
-//= require vue-resource/dist/vue-resource
-
 Vue.http.interceptors.push({
   request: function (request) {
     Vue.http.headers.common['X-CSRF-Token'] = $('[name="csrf-token"]').attr('content');
@@ -50,8 +45,8 @@ var products = new Vue({
     pagination: {},
     upper_price,
     lower_price,
-    orientation,
-    category,
+    orientation: 'asc',
+    category: 'all',
     errors: {}
   },
   mounted: function() {

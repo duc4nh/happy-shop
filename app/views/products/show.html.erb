@@ -21,8 +21,12 @@
       </div>
 
       <div class="add-to-bag">
-        <div v-if="product.sold_out"><h4 class="out-of-stock">Out of Stock</h4></div>
-        <div v-else><button class="btn btn-sm btn-block btn-danger product-card-add-to-bag">Add To Bag</button></p></div>
+        <div v-if="product.sold_out">
+          <h4 class="out-of-stock">Out of Stock</h4>
+        </div>
+        <div v-else>
+          <button class="btn btn-block btn-danger product-card-add-to-bag">Add To Bag</button>
+        </div>
       </div>
     </div>
   </div>
