@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <a href="#" class="product-card-description-container">
+      <a v-bind:href="'/products/'+ product.id" class="product-card-description-container">
         <div class="product-card-description">
           <p class="product-card-label-new-arrival">NEW<span class='sub-label'> | LIMITED EDITION</span></p>
           <p class="product-card-brand">{{ product.name }}</p>
