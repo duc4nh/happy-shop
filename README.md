@@ -1,24 +1,82 @@
-# README
+## Happy Shop
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A sample e-commerce website using API driven approach. 
 
-Things you may want to cover:
+Tech stack:
 
-* Ruby version
+* Grape for JSON API
 
-* System dependencies
+* Postgres database
 
-* Configuration
+* RSpec automation test
 
-* Database creation
+* VueJS for client-side frontend
 
-* Database initialization
+## API documentation
 
-* How to run the test suite
+Returns multiple products with attributes for each product.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+GET /api/v1/products
+```
 
-* Deployment instructions
+Parameter
 
-* ...
+* `page` page number
+* `per_page` number of item per page
+* `sort` sorting field, default: 'price'
+* `orientation` default: 'ASC'
+* `upper_price` price filter
+* `lower_price` price filter
+* `category` category filter
+
+Response
+```
+{
+	"products":[
+		{
+			"id":66,
+			"name":"Facial Spray 1",
+			"sold_out":false,
+			"category":"Makeup",
+			"under_sale":false,
+			"price":"$14.53",
+			"sale_price":"$10.00",
+			"sale_text":"50% OFF"
+		}
+	],
+	"pagination":{"page":1,"per_page":9,"total_pages":4,"count":30}
+}
+```
+
+Returns data for a single product with its attributes.
+
+```
+GET /api/v1/products/:id
+```
+
+Parameter
+
+* `id` product ID
+
+Response
+```
+{
+	"id":66,
+	"name":"Facial Spray 1",
+	"sold_out":false,
+	"category":"Makeup",
+	"under_sale":false,
+	"price":"$14.53",
+	"sale_price":"$10.00",
+	"sale_text":"50% OFF"
+}
+```
+
+## Testing
+
+To test, run `rspec`
+
+## Deployment
+
+Site is available at https://happy-shop-duc-nguyen.herokuapp.com/
