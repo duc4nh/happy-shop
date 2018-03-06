@@ -28,8 +28,8 @@ class Product < ApplicationRecord
     products
   end
 
-  def formated_price
-    "$#{sprintf('%.2f', price / 100.0)}"
+  def formated_price(amount)
+    "$#{sprintf('%.2f', amount / 100.0)}"
   end
 
   def as_json
@@ -39,8 +39,8 @@ class Product < ApplicationRecord
       sold_out: sold_out,
       category: category.capitalize,
       under_sale: under_sale,
-      price: formated_price,
-      sale_price: sale_price,
+      price: formated_price(price),
+      sale_price: formated_price(sale_price),
       sale_text: sale_text
     }
   end
