@@ -1,0 +1,38 @@
+<script type="text/x-template" id="product-item">
+  <div>
+    <div class="col-md-4 col-md-offset-1">
+      <img class="product-img" src="<%= image_url('product_img.jpg') %>" lazy="loaded">
+    </div>
+    <div class="col-md-6">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <h4>{{ product.category }}</h4>
+      <hr/>
+      <p>Price: {{ product.price }}</p>
+      <p>Promotion: {{ product.sale_text }}</p>
+      
+      <div class="product-card-rating rating-container">
+        <div data-rateit-resetable="false" data-rateit-readonly="true" data-rateit-starwidth="14.7" data-rateit-starheight="12" data-rateit-value="4" data-rateit-ispreset="true" class="product-rating rateit">
+          <div class="rateit-reset" style="display: none;"></div>
+          <div class="rateit-range" style="width: 73.5px; height: 12px;">
+            <div class="rateit-selected rateit-preset" style="height: 12px; width: 58.8px;"></div>
+            <div class="rateit-hover" style="height:12px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-to-bag">
+        <div v-if="product.sold_out"><h4 class="out-of-stock">Out of Stock</h4></div>
+        <div v-else><button class="btn btn-sm btn-block btn-danger product-card-add-to-bag">Add To Bag</button></p></div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<div id="product">
+  <div
+    is="product-item"
+    :product="product">
+  </div>
+</div>
+
+<%= javascript_include_tag 'product' %>

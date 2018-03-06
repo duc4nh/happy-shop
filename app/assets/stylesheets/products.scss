@@ -113,8 +113,8 @@ a {
 }
 
 .product-card .product-card-description-container .product-card-label-new-arrival, .product-card .product-card-description-container .product-card-label-limited-edition {
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 9px;
+    font-weight: 549;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 0px;
@@ -122,7 +122,7 @@ a {
 }
 
 .product-card .product-card-description-container .product-card-description .product-card-brand {
-    font-weight: 600;
+    font-weight: 549;
     text-transform: uppercase;
     margin-bottom: 1px;
 }
@@ -228,6 +228,10 @@ div.rateit div.rateit-selected, div.rateit div.rateit-preset {
 
 .page-span {
     margin: 10px;
+}
+
+.sub-label {
+    color: gray;
 }
 
 @media (max-width: 768px) {
