@@ -38,7 +38,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop', '~> 0.46.0', require: false
+  gem 'rubocop', '~> 0.49.0', require: false
   gem 'erb2haml'
   gem 'annotate', require: false
 end
