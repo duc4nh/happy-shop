@@ -1,0 +1,22 @@
+{
+  "name": "myapp",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=7.5.0",
+    "yarn": "1.5.1",
+    "npm": "4.1.2"
+  },
+  "dependencies": {
+    "@rails/webpacker": "^3.3.0",
+    "axios": "^0.18.0",
+    "vue": "^2.5.13",
+    "vue-loader": "^14.1.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^2.11.1"
+  }
+}

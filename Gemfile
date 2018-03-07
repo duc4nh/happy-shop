@@ -52,11 +52,7 @@ gem 'grape'
 gem 'kaminari'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'bootstrap-sass', '~> 3.3.7'
-# gem 'rest-client'
-# gem 'figaro'
-# gem 'devise'
-# gem 'adminlte2-rails'
-# gem 'font-awesome-rails'
-# gem 'json'
+gem 'webpacker'
+gem 'foreman'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
