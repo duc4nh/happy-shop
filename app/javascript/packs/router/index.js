@@ -17,11 +17,6 @@ export default new Router({
       path: '/products/:id',
       name: 'Product',
       component: Product
-    },
-    {
-      path: '/p/:id',
-      name: 'Product_card',
-      component: Product_card
     }
   ]
 })
